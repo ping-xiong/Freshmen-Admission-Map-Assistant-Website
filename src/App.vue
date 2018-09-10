@@ -16,6 +16,12 @@
         <bm-marker :position="showPonit" animation="BMAP_ANIMATION_BOUNCE" v-if="isShowPoint">
             <bm-label :content="showPonitName" :labelStyle="{color: 'red', fontSize : '20px'}" :offset="{width: -20, height: 30}"/>
         </bm-marker>
+        <bm-marker :position="tieba" animation="BMAP_ANIMATION_BOUNCE">
+            <bm-label content="贴吧迎新签到点" :labelStyle="{color: 'blue', fontSize : '14px'}" :offset="{width: -38, height: 30}"/>
+        </bm-marker>
+        <bm-info-window :position="tieba" title="贴吧迎新活动" :show="infoWindow.show" @close="infoWindowClose" @open="infoWindowOpen">
+            <p v-text="infoWindow.contents"></p>
+        </bm-info-window>
     </baidu-map>
       <Tooltip placement="left" content="切换卫星图层" id="close-layer" class="top_left_menu_type" :always="true" :transfer="true" :disabled="toolTipDisable">
           <i class="iconfont" style="color: #795548" @click="close_layer">&#xe603;</i>
@@ -27,7 +33,7 @@
           <img src="./assets/qq.png" height="28" alt="QQ群"  @click="QQqunModol = true">
           <!--<p>贴吧官方新生群：808843028</p>-->
       </Tooltip>
-    <toolbar v-on:changNavBychild="changNavBychild" v-on:showPoint="showPoint"></toolbar>
+    <toolbar v-on:changNavBychild="changNavBychild" v-on:showPoint="showPoint" v-on:changeCenter="changeCenter"></toolbar>
       <div id="bottom"></div>
       <Modal v-model="QQqunModol">
           <p slot="header" style="text-align:center">
@@ -46,7 +52,7 @@
 </template>
 
 <script>
-import 'iview/dist/styles/iview.css';
+// import 'iview/dist/styles/iview.css';
 import Toolbar from './components/toolbar'
 import {Tooltip, Modal, Button} from "iview"
 
@@ -77,6 +83,11 @@ export default {
           showPonitName:"",
           toolTipDisable:false,
           QQqunModol:false,
+          infoWindow: {
+              show: true,
+              contents: '快来签到送精美小礼品！'
+          },
+          tieba:{lat: 24.332636,lng: 109.455316}
       }
     },
     mounted(){
@@ -124,6 +135,9 @@ export default {
             this.showPonitName = name;
             this.isShowPoint = true;
         },
+        changeCenter(){
+            this.centerPoint = this.tieba;
+        },
         colseToolTips(){
             // 5秒后隐藏
             setTimeout(this.setToolTipsFalse, 5000);
@@ -139,6 +153,12 @@ export default {
             }
 
         },
+        infoWindowClose (e) {
+            this.infoWindow.show = false
+        },
+        infoWindowOpen (e) {
+            this.infoWindow.show = true
+        }
     }
 }
 </script>
@@ -207,4 +227,8 @@ export default {
         overflow: hidden;
         background: #fff;
     }
+  #app > div.toolbar > div:nth-child(2) > div.ivu-select-dropdown > ul{
+      height: 300px;
+      overflow-y: scroll;
+  }
 </style>

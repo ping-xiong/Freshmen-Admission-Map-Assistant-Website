@@ -42,59 +42,85 @@
             </Button>
             <DropdownMenu slot="list">
                 <DropdownItem name="freshman">报到点</DropdownItem>
+                <DropdownItem name="teiba">贴吧签到点</DropdownItem>
             </DropdownMenu>
         </Dropdown>
-        <Dropdown placement="top" trigger="click">
+        <Dropdown placement="top" trigger="click" @on-click="draw_point">
             <Button>
                 <i class="iconfont" style="color: #2196F3">&#xe651;</i>
                 学生公寓
             </Button>
             <DropdownMenu slot="list">
-                <DropdownItem>
-                    <Dropdown placement="top" @on-click="draw_point">
-                        <DropdownItem>
-                            南区
-                            <Icon type="ios-arrow-forward"></Icon>
-                        </DropdownItem>
-                        <DropdownMenu slot="list">
-                            <DropdownItem name="nan_1">南1#</DropdownItem>
-                            <DropdownItem name="nan_2">南2#</DropdownItem>
-                            <DropdownItem name="nan_3">南3#</DropdownItem>
-                            <DropdownItem name="nan_4">南4#</DropdownItem>
-                            <DropdownItem name="nan_5">南5#</DropdownItem>
-                            <DropdownItem name="nan_6">南6#</DropdownItem>
-                            <DropdownItem name="nan_7">南7#</DropdownItem>
-                            <DropdownItem name="nan_8">南8#</DropdownItem>
-                            <DropdownItem name="nan_9">南9#</DropdownItem>
-                            <DropdownItem name="nan_10">南10#</DropdownItem>
-                            <DropdownItem name="nan_11">南11#</DropdownItem>
-                            <DropdownItem name="nan_12">南12#</DropdownItem>
-                        </DropdownMenu>
-                    </Dropdown>
-                </DropdownItem>
-                <DropdownItem>
-                    <Dropdown placement="top" @on-click="draw_point">
-                        <DropdownItem>
-                            北区
-                            <Icon type="ios-arrow-forward"></Icon>
-                        </DropdownItem>
-                        <DropdownMenu slot="list">
-                            <DropdownItem name="bei_1">北1#</DropdownItem>
-                            <DropdownItem name="bei_2">北2#</DropdownItem>
-                            <DropdownItem name="bei_3">北3#</DropdownItem>
-                            <DropdownItem name="bei_4">北4#</DropdownItem>
-                            <DropdownItem name="bei_5">北5#</DropdownItem>
-                            <DropdownItem name="bei_6">北6#</DropdownItem>
-                            <DropdownItem name="bei_7">北7#</DropdownItem>
-                            <DropdownItem name="bei_8">北8#</DropdownItem>
-                            <DropdownItem name="bei_9">北9#</DropdownItem>
-                            <DropdownItem name="bei_10">北10#</DropdownItem>
-                            <DropdownItem name="bei_11">北11#</DropdownItem>
-                            <DropdownItem name="bei_12">北12#</DropdownItem>
-                            <DropdownItem name="bei_13">北13#</DropdownItem>
-                        </DropdownMenu>
-                    </Dropdown>
-                </DropdownItem>
+                <DropdownItem name="nan_1">南1#</DropdownItem>
+                <DropdownItem name="nan_2">南2#</DropdownItem>
+                <DropdownItem name="nan_3">南3#</DropdownItem>
+                <DropdownItem name="nan_4">南4#</DropdownItem>
+                <DropdownItem name="nan_5">南5#</DropdownItem>
+                <DropdownItem name="nan_6">南6#</DropdownItem>
+                <DropdownItem name="nan_7">南7#</DropdownItem>
+                <DropdownItem name="nan_8">南8#</DropdownItem>
+                <DropdownItem name="nan_9">南9#</DropdownItem>
+                <DropdownItem name="nan_10">南10#</DropdownItem>
+                <DropdownItem name="nan_11">南11#</DropdownItem>
+                <DropdownItem name="nan_12">南12#</DropdownItem>
+                <DropdownItem name="bei_1">北1#</DropdownItem>
+                <DropdownItem name="bei_2">北2#</DropdownItem>
+                <DropdownItem name="bei_3">北3#</DropdownItem>
+                <DropdownItem name="bei_4">北4#</DropdownItem>
+                <DropdownItem name="bei_5">北5#</DropdownItem>
+                <DropdownItem name="bei_6">北6#</DropdownItem>
+                <DropdownItem name="bei_7">北7#</DropdownItem>
+                <DropdownItem name="bei_8">北8#</DropdownItem>
+                <DropdownItem name="bei_9">北9#</DropdownItem>
+                <DropdownItem name="bei_10">北10#</DropdownItem>
+                <DropdownItem name="bei_11">北11#</DropdownItem>
+                <DropdownItem name="bei_12">北12#</DropdownItem>
+                <DropdownItem name="bei_13">北13#</DropdownItem>
+                <!--<DropdownItem>-->
+                    <!--<Dropdown placement="top" @on-click="draw_point">-->
+                        <!--<DropdownItem>-->
+                            <!--南区-->
+                            <!--<Icon type="ios-arrow-forward"></Icon>-->
+                        <!--</DropdownItem>-->
+                        <!--<DropdownMenu slot="list">-->
+                            <!--<DropdownItem name="nan_1">南1#</DropdownItem>-->
+                            <!--<DropdownItem name="nan_2">南2#</DropdownItem>-->
+                            <!--<DropdownItem name="nan_3">南3#</DropdownItem>-->
+                            <!--<DropdownItem name="nan_4">南4#</DropdownItem>-->
+                            <!--<DropdownItem name="nan_5">南5#</DropdownItem>-->
+                            <!--<DropdownItem name="nan_6">南6#</DropdownItem>-->
+                            <!--<DropdownItem name="nan_7">南7#</DropdownItem>-->
+                            <!--<DropdownItem name="nan_8">南8#</DropdownItem>-->
+                            <!--<DropdownItem name="nan_9">南9#</DropdownItem>-->
+                            <!--<DropdownItem name="nan_10">南10#</DropdownItem>-->
+                            <!--<DropdownItem name="nan_11">南11#</DropdownItem>-->
+                            <!--<DropdownItem name="nan_12">南12#</DropdownItem>-->
+                        <!--</DropdownMenu>-->
+                    <!--</Dropdown>-->
+                <!--</DropdownItem>-->
+                <!--<DropdownItem>-->
+                    <!--<Dropdown placement="top" @on-click="draw_point">-->
+                        <!--<DropdownItem>-->
+                            <!--北区-->
+                            <!--<Icon type="ios-arrow-forward"></Icon>-->
+                        <!--</DropdownItem>-->
+                        <!--<DropdownMenu slot="list">-->
+                            <!--<DropdownItem name="bei_1">北1#</DropdownItem>-->
+                            <!--<DropdownItem name="bei_2">北2#</DropdownItem>-->
+                            <!--<DropdownItem name="bei_3">北3#</DropdownItem>-->
+                            <!--<DropdownItem name="bei_4">北4#</DropdownItem>-->
+                            <!--<DropdownItem name="bei_5">北5#</DropdownItem>-->
+                            <!--<DropdownItem name="bei_6">北6#</DropdownItem>-->
+                            <!--<DropdownItem name="bei_7">北7#</DropdownItem>-->
+                            <!--<DropdownItem name="bei_8">北8#</DropdownItem>-->
+                            <!--<DropdownItem name="bei_9">北9#</DropdownItem>-->
+                            <!--<DropdownItem name="bei_10">北10#</DropdownItem>-->
+                            <!--<DropdownItem name="bei_11">北11#</DropdownItem>-->
+                            <!--<DropdownItem name="bei_12">北12#</DropdownItem>-->
+                            <!--<DropdownItem name="bei_13">北13#</DropdownItem>-->
+                        <!--</DropdownMenu>-->
+                    <!--</Dropdown>-->
+                <!--</DropdownItem>-->
             </DropdownMenu>
         </Dropdown>
         <Dropdown placement="top" trigger="click"  @on-click="draw_point">
@@ -412,6 +438,9 @@ export default {
                 point = this.freshman;
             }else if(arr[0] == "teach"){
                 point = this.teach[arr[1]-1];
+            }else if(arr[0] == "teiba"){
+                this.$emit("changeCenter");
+                return;
             }
             // console.log(point);
             this.$emit("showPoint",{lat:point.lat, lng:point.lng}, point.name);
