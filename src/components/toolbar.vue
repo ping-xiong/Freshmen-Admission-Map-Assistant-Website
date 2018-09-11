@@ -458,11 +458,11 @@ export default {
 <style scoped>
     @font-face {
         font-family: 'iconfont';  /* project id 829567 */
-        src: url('//at.alicdn.com/t/font_829567_q760qhwhmk.eot');
-        src: url('//at.alicdn.com/t/font_829567_q760qhwhmk.eot?#iefix') format('embedded-opentype'),
-        url('//at.alicdn.com/t/font_829567_q760qhwhmk.woff') format('woff'),
-        url('//at.alicdn.com/t/font_829567_q760qhwhmk.ttf') format('truetype'),
-        url('//at.alicdn.com/t/font_829567_q760qhwhmk.svg#iconfont') format('svg');
+        src: url('//at.alicdn.com/t/font_829567_ua54dme189.eot');
+        src: url('//at.alicdn.com/t/font_829567_ua54dme189.eot?#iefix') format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_829567_ua54dme189.woff') format('woff'),
+        url('//at.alicdn.com/t/font_829567_ua54dme189.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_829567_ua54dme189.svg#iconfont') format('svg');
     }
 
     .iconfont{

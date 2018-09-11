@@ -33,6 +33,9 @@
           <img src="./assets/qq.png" height="28" alt="QQ群"  @click="QQqunModol = true">
           <!--<p>贴吧官方新生群：808843028</p>-->
       </Tooltip>
+      <Tooltip placement="left" content="帮助" id="help" class="top_left_menu_type" :always="true" :transfer="true" :disabled="toolTipDisable">
+          <i class="iconfont" style="color: #795548" @click="help = true">&#xe621;</i>
+      </Tooltip>
     <toolbar v-on:changNavBychild="changNavBychild" v-on:showPoint="showPoint" v-on:changeCenter="changeCenter"></toolbar>
       <div id="bottom"></div>
       <Modal v-model="QQqunModol">
@@ -45,6 +48,21 @@
           </div>
           <div slot="footer">
               <Button type="default" size="large" long  @click="join_QQqun">确认</Button>
+          </div>
+      </Modal>
+      <Modal v-model="help">
+          <p slot="header" style="text-align:center">
+              <span>帮助</span>
+          </p>
+          <div style="text-align:center; font-size: 16px">
+              <p>有任何问题加群询问：808843028</p>
+              <p>本站内容仅供参考！广科大吧不承担任何后果</p>
+              <p>活动解释权归广科大吧所有。</p>
+              <p>广科大吧出品</p>
+              <p style="color: red"><a href="https://pingxonline.com">开发者博客：https://pingxonline.com</a></p>
+          </div>
+          <div slot="footer">
+              <Button type="default" size="large" long  @click="colse_help">确认</Button>
           </div>
       </Modal>
 
@@ -83,11 +101,12 @@ export default {
           showPonitName:"",
           toolTipDisable:false,
           QQqunModol:false,
+          help:false,
           infoWindow: {
               show: true,
-              contents: '快来签到送精美小礼品！'
+              contents: '9月12号到贴吧签到点送精美小礼品！'
           },
-          tieba:{lat: 24.332636,lng: 109.455316}
+          tieba:{lat: 24.332834, lng: 109.455298}
       }
     },
     mounted(){
@@ -149,7 +168,15 @@ export default {
             if (this.QQqunModol){
                 this.QQqunModol = false;
             } else{
-                this.QQqunModol = false;
+                this.QQqunModol = true;
+            }
+
+        },
+        colse_help(){
+            if (this.help){
+                this.help = false;
+            } else{
+                this.help = true;
             }
 
         },
@@ -176,11 +203,11 @@ export default {
   }
   @font-face {
       font-family: 'iconfont';  /* project id 829567 */
-      src: url('//at.alicdn.com/t/font_829567_q760qhwhmk.eot');
-      src: url('//at.alicdn.com/t/font_829567_q760qhwhmk.eot?#iefix') format('embedded-opentype'),
-      url('//at.alicdn.com/t/font_829567_q760qhwhmk.woff') format('woff'),
-      url('//at.alicdn.com/t/font_829567_q760qhwhmk.ttf') format('truetype'),
-      url('//at.alicdn.com/t/font_829567_q760qhwhmk.svg#iconfont') format('svg');
+      src: url('//at.alicdn.com/t/font_829567_ua54dme189.eot');
+      src: url('//at.alicdn.com/t/font_829567_ua54dme189.eot?#iefix') format('embedded-opentype'),
+      url('//at.alicdn.com/t/font_829567_ua54dme189.woff') format('woff'),
+      url('//at.alicdn.com/t/font_829567_ua54dme189.ttf') format('truetype'),
+      url('//at.alicdn.com/t/font_829567_ua54dme189.svg#iconfont') format('svg');
   }
 
   .iconfont{
@@ -217,6 +244,11 @@ export default {
         top:142px;
         padding-top: 2px;
     }
+    #help{
+        right: 12px;
+        top:182px;
+        padding-top: 2px;
+    }
     .vueBox{
         position: absolute;
         top: 0;
@@ -231,4 +263,6 @@ export default {
       height: 300px;
       overflow-y: scroll;
   }
+
+
 </style>
